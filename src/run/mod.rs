@@ -58,7 +58,7 @@ pub fn command(command: &RunCommand) -> Result<String, Box<dyn std::error::Error
                 Err(err) => println!("Error: {}", err),
             }
 
-            sleep(Duration::from_secs(2)).await;
+            sleep(Duration::from_secs(1)).await;
         }
     });
 
