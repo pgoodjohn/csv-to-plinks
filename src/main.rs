@@ -15,8 +15,10 @@ struct Cli {
 #[derive(Subcommand)]
 enum Commands {
     Run(run::RunCommand),
+    Check(check::CheckCommand),
 }
 
+mod check;
 mod run;
 
 fn main() {
@@ -29,6 +31,9 @@ fn main() {
     match cli.command {
         Some(Commands::Run(command)) => {
             run::command(&command);
+        }
+        Some(Commands::Check(command)) => {
+            check::command(&command);
         }
         None => {} // Handled by Clap
     }

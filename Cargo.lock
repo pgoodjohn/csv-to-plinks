@@ -238,8 +238,10 @@ version = "0.1.0"
 dependencies = [
  "clap",
  "csv",
+ "lazy_static",
  "log",
  "plogger",
+ "regex",
  "reqwest",
  "serde",
  "serde_derive",

@@ -1,4 +1,4 @@
-use clap::{Parser, Subcommand};
+use clap::Parser;
 
 use std::error::Error;
 use std::fs::File;
@@ -7,9 +7,7 @@ use std::path::Path;
 
 use csv::ReaderBuilder;
 use reqwest::Client;
-use serde::{Deserialize, Serialize};
 use serde_derive::{Deserialize, Serialize};
-use serde_json::json;
 use std::time::Duration;
 use tokio;
 use tokio::time::sleep;
