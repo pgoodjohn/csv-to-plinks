@@ -136,7 +136,7 @@ async fn create_payment_request(
             value: format!("{:.2}", record.amount_owed),
         },
         description: format!("{} - {}", record.name, record.item_ordered),
-        redirect_url: "https://localhost".to_string(),
+        redirect_url: "https://home.pietrobongiovanni.com/thankyou/".to_string(),
     };
 
     let res = client

@@ -51,10 +51,10 @@ pub fn command(command: &CheckCommand) -> Result<String, Box<dyn std::error::Err
             match get_payment_request_status(&command.api_key, &record.payment_link).await {
                 Ok(payment_request_status) => {
                     log::info!(
-                        "Payment Request for {} from {} (id: {}) was paid at: {}",
-                        record.name,
-                        record.amount,
+                        "Payment Request ({} - EUR {}) for {} was paid at: {}",
                         payment_request_status.id,
+                        record.amount,
+                        payment_request_status.description,
                         match payment_request_status.paid_at {
                             Some(t) => t,
                             None => "N/A".to_string(),
@@ -84,6 +84,7 @@ struct PaymentRequestStatus {
     id: String,
     #[serde(rename = "paidAt")]
     paid_at: Option<String>,
+    description: String,
 }
 
 lazy_static! {
