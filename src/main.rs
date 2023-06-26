@@ -16,9 +16,11 @@ struct Cli {
 enum Commands {
     Run(run::RunCommand),
     Check(check::CheckCommand),
+    Open(open::OpenCommand),
 }
 
 mod check;
+mod open;
 mod run;
 
 fn main() {
@@ -34,6 +36,9 @@ fn main() {
         }
         Some(Commands::Check(command)) => {
             check::command(&command);
+        }
+        Some(Commands::Open(command)) => {
+            open::command(&command);
         }
         None => {} // Handled by Clap
     }
